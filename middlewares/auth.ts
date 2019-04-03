@@ -8,7 +8,7 @@ export const authMiddleware = (req: Request & { tokenContent?: any }, res: Respo
     return res.status(401).json({ message: 'You need to be authorized to access this part of api', reason: 'Missing token' });
 
   try {
-    const tokenContent = jwt.verify(token, '>>> SecretKey <<<');
+    const tokenContent = jwt.verify(token, process.env.JWT_SECRET);
     req.tokenContent = tokenContent;
     next();
   }
