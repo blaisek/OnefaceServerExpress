@@ -14,7 +14,6 @@ export class Database {
 
     connect(){
 
-
     console.log('connecting database to' + this.uri);
     return this.db
                 .connect(this.uri,{useNewUrlParser: true, user: this.user, pass: this.pass})
