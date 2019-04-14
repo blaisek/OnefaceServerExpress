@@ -73,3 +73,6 @@ dump
 #mongo deploy
 
 mongoDeploy.sh
+
+#kairosAPI
+kairosApi
