@@ -5,17 +5,19 @@ import * as jwt from 'jsonwebtoken';
 // main interface
 export interface IUser {
   email: string;
-  // password: string;
+  password: string;
 }
 
 // document interface, define custom methods here
 export interface IUserDoc extends mongoose.Document, IUser {
+  comparePassword(password: any);
   compareEmail(email: string): boolean;
   getToken(): string;
 }
 
 // model interface, define custom static methods here
 interface IUserModel extends mongoose.Model<IUserDoc> {
+  hashPassword(password: any): string;
   hashemail(email: string): string;
 }
 

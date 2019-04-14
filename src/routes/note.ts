@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as mongoose from 'mongoose';
-import {NoteModel, INoteDoc} from '../models/note';
+import {NoteModel, INoteDoc} from '../model/note';
 import { authMiddleware } from '../middlewares';
 
 

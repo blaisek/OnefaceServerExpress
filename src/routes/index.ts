@@ -21,6 +21,5 @@ export const indexRouter = express.Router()
   res.json({ message: 'You are in a secured api' });
 });
 
-export * from './movie';
 export * from './note';
 export * from './user';
