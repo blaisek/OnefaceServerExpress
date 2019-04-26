@@ -8,7 +8,7 @@ export const noteRouter = express.Router()
 .use(authMiddleware)
 // get all notes
 .get('/', (req, res) => {
-  NoteModel.find({ user_id: mongoose.Types.ObjectId(req.tokenContent.userId) }) // find en fonction de user id
+  NoteModel.find({user_id: mongoose.Types.ObjectId(req.tokenContent.userId) }) // find en fonction de user id
             .then((notes: INoteDoc[]) => res.json({ notes }))
             .catch(err => res.status(500).json({ code: 500, message: 'Internal server error', err }));
 })

@@ -75,7 +75,7 @@ dump
 mongoDeploy.sh
 
 #kairosAPI
-kairosApi
+kairosApi/
 detect.ts
 enroll.ts
 verify.ts
