@@ -1,5 +1,10 @@
 
 import fetch from 'node-fetch';
+import * as dotenv from 'dotenv';
+
+
+
+dotenv.config();
 
 export class verify {
 
@@ -16,8 +21,8 @@ export class verify {
       body: JSON.stringify(body), 
       headers: { 
         'Content-Type': 'application/json',
-        app_key: 'e98f222df24d8825f898ffc06ce892c6',
-        app_id: '64c9bc0e'
+        app_key:  process.env.app_key,
+        app_id:  process.env.app_id
       } 
     }).then(res => res.json());
     // request(options, function (error, response, body) {
