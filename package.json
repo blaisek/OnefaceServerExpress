@@ -15,7 +15,6 @@
   "author": "myself",
   "license": "ISC",
   "dependencies": {
-    "@types/jsonwebtoken": "^8.3.2",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
@@ -29,9 +28,12 @@
     "mongoose": "^5.4.22",
     "morgan": "^1.9.1",
     "node-fetch": "^2.3.0",
-    "typescript": "^3.4.1"
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "@types/mongoose": "^5.3.24"
+    "@types/mongoose": "^5.3.24",
+    "@types/node-fetch": "^2.3.3",
+    "@types/jsonwebtoken": "^8.3.2",
+    "typescript": "^3.4.1"
   }
 }

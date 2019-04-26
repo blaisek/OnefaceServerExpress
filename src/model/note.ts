@@ -34,7 +34,7 @@ const noteSchema = new mongoose.Schema<INoteDoc>({
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users',
-    required: true
+    // required: true
   },
 });
 

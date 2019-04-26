@@ -14,7 +14,7 @@ export const indexRouter = express.Router()
 .post('/signin', (req, res) => {
   // appel de l'api verify methode
   // gen jwt
-  res.json({ message: 'Welcome back' });
+  res.json({code: 200,  message: 'Welcome back' });
 })
 
 .post('/secured', (req, res) => {

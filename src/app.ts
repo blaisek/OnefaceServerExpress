@@ -59,10 +59,8 @@ database
       .use(tokenMiddleware);
 
    // routes
-   app.get('/', (req, res) => res.json({ message: 'Please use /api/' }))
-      .use('/api/', indexRouter)
-      .use('/api/note/', noteRouter);
-
+   app.use('/api', indexRouter)
+      .use('/api/notes/', noteRouter)
    // add error handlers
    app.use(internalErrorMiddleware)
       .use(notFoundMiddleware);

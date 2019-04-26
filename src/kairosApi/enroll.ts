@@ -1,30 +1,34 @@
 
+import fetch from 'node-fetch';
+
+export class enroll {
 
 
-var fs = require("fs");
-var request = require("request");
+  static register (image, userId){
 
-var options = { method: 'POST',
-  url: 'https://api.kairos.com/enroll',
-  headers: 
-   { 'Postman-Token': 'f7dc88f7-088a-489c-9630-eb128be56dea',
-     'cache-control': 'no-cache',
-     app_key: 'e98f222df24d8825f898ffc06ce892c6',
-     app_id: '64c9bc0e',
-     'Content-Type': 'application/json',
-     'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
-  formData: 
-   { image: 
-      { value: 'fs.createReadStream("/Users/Blaze/web/nomades/MobileWebApplication/img/wamSansLunettes.jpg")',
-        options: 
-         { filename: '/Users/Blaze/web/nomades/MobileWebApplication/img/wamSansLunettes.jpg',
-           contentType: null } },
-     gallery_name: 'blaze.kalonda@gmail.com',
-     subject_id: 'blaze.kalonda@gmail.com' } };
+    const body = {
+      image: image,
+      subject_id: userId,
+      gallery_id: userId,
+    };
+    return fetch('https://api.kairos.com/enroll',  { 
+      method: 'POST', 
+      body: JSON.stringify(body), 
+      headers: { 
+        'Content-Type': 'application/json',
+        app_key: 'e98f222df24d8825f898ffc06ce892c6',
+        app_id: '64c9bc0e'
+      } 
+    }).then(res => res.json());
+    // request(options, function (error, response, body) {
+    //   if (error) throw new Error(error);
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+    //   console.log(body);
+    // });
 
-  console.log(body);
-});
+}
+  
+
+}
+
 
