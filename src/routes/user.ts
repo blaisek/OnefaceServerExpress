@@ -1,15 +1,17 @@
 import * as express from 'express';
 import { UserModel, IUser } from '../model';
-import {enroll} from '../kairosApi/enroll'
-import {verify} from '../kairosApi/verify'
+import {enroll} from '../kairosApi/enroll';
+import {verify} from '../kairosApi/verify';
 import { detect } from '../kairosApi/detect';
+
+
 export const userRouter = express.Router()
 
 // registration
 .post('/signup', (req, res) => {
   
   const { email, image } = req.body;
-  if (!email || !image ) {
+  if (!email || !image ) { //0
     return res.status(400).json({ code: 400, message: 'Missing data for signup' });
   }
   // Steps
@@ -24,7 +26,7 @@ export const userRouter = express.Router()
   // post enroll api kairos
   // check user alreaqdy exists
   // appel à l'api externe enroll req.body 
-  UserModel.findOne({ email })
+  UserModel.findOne({ email }) //1
            .then(user => user !== null)
            .then(found => {
              if (found)

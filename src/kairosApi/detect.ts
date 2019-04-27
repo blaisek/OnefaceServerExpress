@@ -1,23 +1,21 @@
 
 import fetch from 'node-fetch';
-
 import * as dotenv from 'dotenv';
 
 
 
 dotenv.config();
 
-export class enroll {
+export class detect {
 
 
-  static register (image: any, userId){
+  static getFaces (image:any){
 
     const body = {
-      image: image,
-      subject_id: userId,
-      gallery_id: userId,
+      image,
+      selector: 'ROLL',
     };
-    return fetch('https://api.kairos.com/enroll',  { 
+    return fetch('https://api.kairos.com/detect',  { 
       method: 'POST', 
       body: JSON.stringify(body), 
       headers: { 
@@ -25,6 +23,7 @@ export class enroll {
         app_key: process.env.app_key,
         app_id: process.env.app_id
       } 
+
     }).then(res => res.json());
     // request(options, function (error, response, body) {
     //   if (error) throw new Error(error);

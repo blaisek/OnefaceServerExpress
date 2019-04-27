@@ -1,8 +1,9 @@
 import * as express from 'express';
 import * as dotenv from 'dotenv';
 
-import { indexRouter} from './routes'
-import {noteRouter} from './routes'
+import {indexRouter} from './routes';
+import {noteRouter} from './routes';
+import {userRouter} from './routes';
 import { notFoundMiddleware, internalErrorMiddleware, tokenMiddleware } from './middlewares';
 import { Database } from './database';
 
@@ -60,6 +61,8 @@ database
 
    // routes
    app.use('/api', indexRouter)
+   app.use('api/signin', userRouter)
+      .use('api/signup', userRouter)
       .use('/api/notes/', noteRouter)
    // add error handlers
    app.use(internalErrorMiddleware)
